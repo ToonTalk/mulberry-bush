@@ -107,13 +107,13 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-siz
 <header>
   <div class="kicker">Making-of report · 12 November 2026</div>
   <h1>Making Mulberry Bush</h1>
-  <p class="lede">How Ken Kahn's hand-drawn film of 1976 became two web pieces in one working session: one that traces every drawing, and one that uses none of them. This is what I did, why I did it that way, and which tools I used.</p>
+  <p class="lede">How Ken Kahn's hand-drawn film of 1976 became two web pieces in one working day: one that traces every drawing, and one that uses none of them. A trailer and a small site followed. This is what I did, why I did it that way, and which tools I used.</p>
   <p class="byline">Written by Claude, working in Claude Code on Ken's Windows machine. The reasons given here are reconstructed from the session's record after the fact.</p>
   <dl class="facts">
     <div><dt>Drawings traced</dt><dd>2,095</dd></div>
     <div><dt>Film frames in version two</dt><dd>0</dd></div>
-    <div><dt>Tool calls</dt><dd>211</dd></div>
-    <div><dt>Working time</dt><dd>3 h 8 min</dd></div>
+    <div><dt>Tool calls</dt><dd>377</dd></div>
+    <div><dt>Working time</dt><dd>3 h 55 min</dd></div>
   </dl>
 </header>
 
@@ -124,6 +124,7 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-siz
   <a href="#sound">The soundtrack</a>
   <a href="#round">Part two: the wheel</a>
   <a href="#corrections">Corrections</a>
+  <a href="#site">Trailer and site</a>
   <a href="#tools">Tools</a>
   <a href="#limits">Not checked</a>
   <a href="#files">Files</a>
@@ -140,7 +141,7 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-siz
   </table></div>
   <div class="prose">
     <p>The film itself is <a href="https://youtu.be/BfE71oTYjdI" target="_blank" rel="noopener">on YouTube</a>. Both pieces are public: the links above open them in any browser, <a href="https://toontalk.github.io/mulberry-bush/">the home page</a> gathers all the versions, and everything behind them, this report included, is in <a href="https://github.com/ToonTalk/mulberry-bush" target="_blank" rel="noopener">the GitHub repository</a> under the MIT license.</p>
-    <p>Ken has written about the project himself: <a href="https://docs.google.com/document/d/1oOUyADL3a0jlJoN6jBb9grhNuNDvgEkkRSWQtMFjeYs/edit?usp=sharing" target="_blank" rel="noopener">Ken&rsquo;s post</a>.</p>
+    <p>A 30-second trailer plays on the home page. Ken has written about the project himself: <a href="https://docs.google.com/document/d/1oOUyADL3a0jlJoN6jBb9grhNuNDvgEkkRSWQtMFjeYs/edit?usp=sharing" target="_blank" rel="noopener">Two remakes of my 1976 Mulberry Bush film by Claude</a>.</p>
   </div>
 </section>
 
@@ -152,11 +153,16 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-siz
       <tr><td class="n">09:05</td><td>“Can you make a web app version that maintains the hand-made look? Can you create an appropriate synched soundtrack for it? Feel free to be creative.”</td><td class="n">11:39</td><td class="n">131</td></tr>
       <tr><td class="n">11:56</td><td>Move it under <code>C:\Users\toont</code> and publish. Then make “a new version with no tracing of the original” that is “a radical reinterpretation of the film”, keeping the Mulberry Bush concept.</td><td class="n">12:25</td><td class="n">60</td></tr>
       <tr><td class="n">13:19</td><td>Nancy played accordion and Tommy played fiddle; add a link to the film. Then: “Yes, accordion” for the traced version too.</td><td class="n">13:26</td><td class="n">20</td></tr>
-      <tr><td class="n">15:44</td><td>Write this report. Then: put everything in a GitHub repository under the MIT license, make it public, turn on GitHub Pages, give each page its own icon, link this report from both pieces, cut a 30-second trailer, and add a home page.</td><td class="n">later</td><td class="n">not counted</td></tr>
+      <tr><td class="n">15:44</td><td>Write this report. While I was working: put everything in a GitHub repository under the MIT license.</td><td class="n">15:57</td><td class="n">58</td></tr>
+      <tr><td class="n">15:58</td><td>Make the repository public, then turn on GitHub Pages.</td><td class="n">16:01</td><td class="n">10</td></tr>
+      <tr><td class="n">16:10</td><td>Add favicons &ldquo;appropriate to each&rdquo; and link this report from both pieces.</td><td class="n">16:14</td><td class="n">18</td></tr>
+      <tr><td class="n">16:15</td><td>Make a 30-second trailer with bits of the film and of both web pieces.</td><td class="n">16:36</td><td class="n">51</td></tr>
+      <tr><td class="n">17:00</td><td>Make the site&rsquo;s front page a home page, and link Ken&rsquo;s post.</td><td class="n">17:04</td><td class="n">18</td></tr>
+      <tr><td class="n">17:11</td><td>Add the trailer to the repository and the home page.</td><td class="n">17:13</td><td class="n">11</td></tr>
     </tbody>
   </table></div>
   <div class="prose">
-    <p>The first request took two and a half hours, and about 65 minutes of that was a single tracing run I had written badly (see <a href="#wrong">what went wrong</a>). The second took 29 minutes because it needed no analysis of the film: it is one page of code.</p>
+    <p>The first request took two and a half hours, and about 65 minutes of that was a single tracing run I had written badly (see <a href="#wrong">what went wrong</a>). The second took 29 minutes because it needed no analysis of the film: it is one page of code. Of the afternoon&rsquo;s requests the trailer was the largest, at 21 minutes. Finishing times are approximate.</p>
   </div>
 </section>
 
@@ -399,10 +405,84 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-siz
   </table></div>
 </section>
 
+<section id="site">
+  <h2><small>Part three</small>The trailer and the site</h2>
+  <div class="prose">
+    <p>After the first version of this report, Ken asked for the work to be put online and then for a trailer. This part covers both.</p>
+  </div>
+
+  <h3>Putting it online</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Request</th><th>What I did</th></tr></thead>
+    <tbody>
+      <tr><td>&ldquo;Create a github repository and commit everything there. MIT license.&rdquo;</td><td>Made the project folder a git repository, wrote a README and the license, and pushed it to GitHub. Ken had not said public or private, so I created it private, because that is the choice that is easy to change afterwards. He then asked for it to be public.</td></tr>
+      <tr><td>&ldquo;Turn on Pages.&rdquo;</td><td>Switched on GitHub Pages for the main branch, so every push republishes the live pages. I waited for each build and then fetched the live pages to confirm they carried the change.</td></tr>
+      <tr><td>Favicons &ldquo;appropriate to each&rdquo;, and a link to this report from both pieces.</td><td>Drew three small icons as SVG: a dancer on the pink film gate, the wheel with its bush, and a page with a film frame. The build scripts embed each one in its page. Both pieces now end their note with &ldquo;How it was made&rdquo;.</td></tr>
+      <tr><td>A home page with a brief description and links to the traced version, <i>Round</i>, the original, this report and Ken&rsquo;s post.</td><td>Wrote one plain page in this report&rsquo;s paper and type, with a picture for each version. The traced version moved from the site&rsquo;s root to <code>/traced/</code> to make room for it.</td></tr>
+    </tbody>
+  </table></div>
+  <figure class="narrow">
+    <img src="img/home.jpg" width="820" height="1443" alt="The home page: the title Mulberry Bush, a short description, the trailer player, three pictures linking to the traced version, Round the Mulberry Bush and the original film, and links to this report and Ken's post">
+    <figcaption>The home page at <a href="https://toontalk.github.io/mulberry-bush/">toontalk.github.io/mulberry-bush</a>.</figcaption>
+  </figure>
+
+  <h3>The trailer</h3>
+  <div class="prose">
+    <p>The request was for &ldquo;a 30 second video (mp4) trailer that includes bits from my original film and the 2 you just made&rdquo;.</p>
+  </div>
+  <dl class="why">
+    <dt>Question</dt>
+    <dd><p>How do you cut thirty seconds out of three things with three different soundtracks so that it holds together?</p></dd>
+    <dt>Choice</dt>
+    <dd><p>Let the tune carry it. Each section keeps its own sound: the 1976 recording, then the traced page&rsquo;s band, then <i>Round</i>&rsquo;s band. Every cut lands on a beat, and every section starts and ends at a phrase boundary of the tune.</p></dd>
+    <dt>Why</dt>
+    <dd><ul>
+      <li>All three play the same tune in the same key at close to the same speed, so the music can be handed from one to the next.</li>
+      <li>Each piece&rsquo;s own sound shows what that piece is. One bed of music under everything would have hidden the difference between a 1976 accordion and fiddle and a browser synthesizing a band.</li>
+      <li>The traced section opens on the film itself, and a line wipes across to the redrawn version of the same frames. That shows &ldquo;every drawing, traced&rdquo; more directly than a caption can.</li>
+      <li><i>Round</i> gets two stretches: the four dancers circling the screen as the wheel starts to turn, then the wheel alive behind its shutter, ending on the piece&rsquo;s own last chord.</li>
+    </ul></dd>
+  </dl>
+  <div class="scroll"><table>
+    <thead><tr><th>Time</th><th>Picture</th><th>Sound</th></tr></thead>
+    <tbody>
+      <tr><td class="n">0:00&ndash;0:06</td><td>The film: painted dancers, striped dancers holding hands, then the big-circle dancers. Title and &ldquo;a film by Ken Kahn, 1976&rdquo;.</td><td>The original recording, twelve beats of an early verse</td></tr>
+      <tr><td class="n">0:06&ndash;0:14</td><td>One late verse of the traced version, wiped in over the film.</td><td>The traced page&rsquo;s band, on the same measured beats</td></tr>
+      <tr><td class="n">0:14&ndash;0:20</td><td><i>Round</i>: the four dancers round the backlit screen; the wheel starts to turn.</td><td>Fiddle and accordion</td></tr>
+      <tr><td class="n">0:20&ndash;0:26</td><td>The wheel alive: big circles on the inner ring, polka dots on the outer.</td><td>Tuba and drum, accordion, then the last chord</td></tr>
+      <tr><td class="n">0:26&ndash;0:30</td><td>End card over the dimmed wheel, with the site&rsquo;s address.</td><td>The chord ringing out</td></tr>
+    </tbody>
+  </table></div>
+  <figure>
+    <img src="img/trailer-sheet.jpg" width="1400" height="840" alt="Twenty frames from the finished trailer, one every one and a half seconds: film clips with the title, the wipe to the traced version, the four dancers round the screen, the wheel of dancers, and the end card">
+    <figcaption>The finished trailer, one frame every second and a half. This sheet, the file&rsquo;s measured length and its sound levels are how I checked it.</figcaption>
+  </figure>
+
+  <h3>How the pieces got into a video</h3>
+  <div class="prose">
+    <ul>
+      <li><b>The film.</b> Frames come straight from the video file. The opening shows three bits from different verses over one continuous stretch of the original recording, so I fitted each bit to the recording beat by beat. The steps land on the beat even though picture and sound come from different places in the film.</li>
+      <li><b>The two web pieces.</b> I ran Microsoft Edge headless and drove it from a Python script through the browser&rsquo;s debugging connection. For each frame the script called the page&rsquo;s own drawing function and saved the canvas; for the sound it had the page&rsquo;s own synthesizer render offline. Nothing was re-implemented, so the trailer shows exactly what the pages draw and play.</li>
+      <li><b>Putting it together.</b> A Python script composed the 900 frames with captions, mixed the four pieces of sound to the same loudness, and handed both to <code>ffmpeg</code> to encode.</li>
+    </ul>
+  </div>
+
+  <h3>What went wrong, and what I did</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Problem</th><th>What I did</th></tr></thead>
+    <tbody>
+      <tr><td>One of my responses was stopped by an automated safety check while I was working out how to get frames and sound out of the pages. I do not know what in it set the check off.</td><td>Carried on with the method described above.</td></tr>
+      <tr><td>The third film bit showed striped dancers where I expected the big-circle dancers, and I suspected my frame reader.</td><td>Pulled frames at known times with <code>ffmpeg</code>. The reader was right. In that verse the film cuts between the two kinds of dancer every few drawings, and one of my earlier contact sheets had misled me.</td></tr>
+      <tr><td>My first cut of <i>Round</i> began just as the four dancers were leaving, so they hardly appeared.</td><td>Recaptured a stretch four seconds earlier, which also lets the tune run on across the next cut.</td></tr>
+      <tr><td>The first encode was 30 MB and quiet.</td><td>Encoded again smaller and louder: 17 MB, with peaks 1.6 dB below full scale.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
 <section id="tools">
   <h2><small>Tool use</small>What I worked with</h2>
   <div class="prose">
-    <p>These counts come from the session log and cover everything up to the request for this report.</p>
+    <p>These counts come from the session log. The first table covers the making of the two pieces, up to the request for this report.</p>
   </div>
   <div class="scroll"><table>
     <thead><tr><th>Tool</th><th>Calls</th><th>What I used it for</th></tr></thead>
@@ -419,17 +499,34 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-siz
     </tbody>
   </table></div>
 
+  <div class="prose">
+    <p>From the report onwards (the repository, the site, the trailer) there were 166 more calls:</p>
+  </div>
+  <div class="scroll"><table>
+    <thead><tr><th>Tool</th><th>Calls</th><th>What I used it for</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Bash shell</td><td class="n">61</td><td>Git and the GitHub command line, the build scripts, headless Edge, the capture and composing scripts for the trailer, <code>ffmpeg</code>.</td></tr>
+      <tr><td class="k">Read</td><td class="n">40</td><td>Looking at screenshots, contact sheets, test stills of the trailer, and the pages&rsquo; own code to find their drawing and sound functions.</td></tr>
+      <tr><td class="k">Write and Edit</td><td class="n">22</td><td>This report, the home page, the README and license, the favicons&rsquo; generator, and the trailer scripts.</td></tr>
+      <tr><td class="k">Plan and wrap-up</td><td class="n">26</td><td>The progress list and end-of-turn summary shown in the app.</td></tr>
+      <tr><td class="k">Artifact</td><td class="n">7</td><td>Publishing this report and republishing all three pages after changes.</td></tr>
+      <tr><td class="k">In-app browser</td><td class="n">5</td><td>Checking each changed page for errors, working links, and layout at phone width.</td></tr>
+      <tr><td class="k">Everything else</td><td class="n">5</td><td>Two text searches, one tool look-up, stopping the headless browser, and sending Ken the trailer file.</td></tr>
+    </tbody>
+  </table></div>
+
   <h3>Software underneath</h3>
   <div class="scroll"><table>
     <thead><tr><th>Where</th><th>What</th><th>For</th></tr></thead>
     <tbody>
       <tr><td class="k">Python</td><td>NumPy, OpenCV, SciPy, Pillow, a bundled <code>ffmpeg</code></td><td>Reading frames, the clean plate, masks, clustering, outlines, the beat tracker, contact sheets</td></tr>
       <tr><td class="k">Browser</td><td>Canvas 2D, Web Audio, <code>DecompressionStream</code></td><td>Drawing every frame, synthesizing every note, unpacking the film data</td></tr>
+      <tr><td class="k">Trailer</td><td>Headless Microsoft Edge driven from Python, Pillow, NumPy, <code>ffmpeg</code></td><td>Capturing frames and sound from the pages, captions, mixing, encoding</td></tr>
       <tr><td class="k">Checking</td><td><code>OfflineAudioContext</code>, headless Microsoft Edge</td><td>Measuring sound I cannot hear; taking full-size stills when the preview pane would not animate</td></tr>
     </tbody>
   </table></div>
   <div class="prose">
-    <p>Neither page uses a library or loads anything from the network. Each is a single HTML file.</p>
+    <p>Neither piece uses a library or loads anything from the network. Each is a single HTML file.</p>
   </div>
 </section>
 
@@ -440,6 +537,7 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-siz
       <li><b>I have not heard either soundtrack.</b> Notes and levels were measured. Whether the instruments sound good, and whether the mix is pleasant, are Ken's to judge.</li>
       <li><b>I never watched <i>Round</i> in motion.</b> It was checked through stills and by testing its logic.</li>
       <li><b>Hands-on mode was exercised by script,</b> not by dragging with a mouse or finger.</li>
+      <li><b>I have not watched or heard the trailer.</b> I checked it through still frames, its length and its sound levels. The joins between the three kinds of sound are the part most in need of an ear.</li>
       <li><b>Browsers.</b> Both pieces were run only in Chromium-based browsers on this machine. Firefox, Safari and phones are untested.</li>
       <li><b>The trace is automatic.</b> Faces and thin lines are simplified, and the dim opening seconds are rough.</li>
       <li><b>The front-row musicians are crudely drawn.</b> The accordion reads as one only loosely.</li>
@@ -463,13 +561,16 @@ footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-siz
       <tr><td><code>source\favicons\</code></td><td>The three page icons, which the build scripts embed</td></tr>
       <tr><td><code>source\NOTES.txt</code></td><td>Build notes</td></tr>
       <tr><td><code>report\</code></td><td>This report and its images</td></tr>
+      <tr><td><code>trailer\mulberry-bush-trailer.mp4</code></td><td>The 30-second trailer</td></tr>
+      <tr><td><code>img\</code></td><td>The home page&rsquo;s pictures</td></tr>
+      <tr><td><code>source\trailer\</code></td><td>The scripts that captured and cut the trailer</td></tr>
       <tr><td><code>README.md</code>, <code>LICENSE</code></td><td>Overview and the MIT license. The whole folder is a git repository, kept on GitHub at <a href="https://github.com/ToonTalk/mulberry-bush" target="_blank" rel="noopener">ToonTalk/mulberry-bush</a></td></tr>
     </tbody>
   </table></div>
 </section>
 
 <footer>
-  Making this report took a further round of work: fresh screenshots of both pieces with headless Edge, and a short script over the session log for the timings and tool counts. The film stills are from <i>Mulberry Bush</i> © 1976 Ken Kahn.
+  Making this report took a further round of work: fresh screenshots of both pieces with headless Edge, and a short script over the session log for the timings and tool counts. It was updated the same evening to cover the trailer and the site. The film stills are from <i>Mulberry Bush</i> © 1976 Ken Kahn.
 </footer>
 
 </div>

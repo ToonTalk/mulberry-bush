@@ -10,7 +10,7 @@ Both were built with Claude in one working session on 12 November 2026.
 | **Round the Mulberry Bush** | A reinterpretation with nothing traced. Four shadow dancers circle a backlit paper screen, the screen turns out to be a phenakistoscope wheel of code-drawn dancers, and the four return. Includes a hands-on mode where you turn the wheel yourself. | [open](https://toontalk.github.io/mulberry-bush/round/) · `round/index.html` |
 | **Making Mulberry Bush** | The making-of report: what was done, why, and with which tools. | [open](https://toontalk.github.io/mulberry-bush/report/) · `report/index.html` |
 
-Start at the home page: **https://toontalk.github.io/mulberry-bush/**. It links to the three versions, the report, and [Ken's post about the project](https://docs.google.com/document/d/1oOUyADL3a0jlJoN6jBb9grhNuNDvgEkkRSWQtMFjeYs/edit?usp=sharing). The links above open the individual pages on GitHub Pages. Sound starts when you press play. Tested in Chromium-based browsers only.
+Start at the home page: **https://toontalk.github.io/mulberry-bush/**. It links to the three versions, the report, and [Ken's post, *Two remakes of my 1976 Mulberry Bush film by Claude*](https://docs.google.com/document/d/1oOUyADL3a0jlJoN6jBb9grhNuNDvgEkkRSWQtMFjeYs/edit?usp=sharing). The links above open the individual pages on GitHub Pages. Sound starts when you press play. Tested in Chromium-based browsers only.
 
 The two films are single HTML files with no dependencies, so they also run from a downloaded copy; the report loads its pictures from `report/img/`.
 

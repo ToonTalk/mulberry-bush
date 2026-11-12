@@ -28,7 +28,7 @@ def embed(m):
     n += 1
     return 'src="data:image/jpeg;base64,' + base64.b64encode(data).decode() + '"'
 art = re.sub(r'src="(img/[^"]+\.jpg)"', embed, src)
-assert n == 15, n
+assert n == 17, n
 assert 'src="img/' not in art
 out = os.path.join(ROOT, 'artifact', 'making-of.html')
 open(out, 'w', encoding='utf-8').write(art)
