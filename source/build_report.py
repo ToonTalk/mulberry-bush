@@ -9,10 +9,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 src = open(os.path.join(ROOT, 'report', 'report.src.html'), encoding='utf-8').read()
 
+from urllib.parse import quote
+svg = open(os.path.join(HERE, 'favicons', 'report.svg'), encoding='utf-8').read().strip()
+ICON = '<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,' + quote(svg, safe="/:='") + '">\n'
+
 # standalone copy: wrap the fragment in a document
 head_end = src.index('</style>') + len('</style>')
 standalone = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
-              '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+              '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' + ICON
               + src[:head_end] + '\n</head>\n<body style="margin:0">\n' + src[head_end:] + '\n</body>\n</html>\n')
 open(os.path.join(ROOT, 'report', 'index.html'), 'w', encoding='utf-8').write(standalone)
 

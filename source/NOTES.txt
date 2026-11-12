@@ -27,3 +27,4 @@ Making-of report
 ----------------
 ../report/report.src.html   the report (edit this); its images are in ../report/img/
 build_report.py             writes ../report/index.html (standalone) and ../artifact/making-of.html (images embedded, for publishing)
+favicons/                   one SVG icon per page; each build script embeds its icon in the stand-alone page (not in the artifact copy)
