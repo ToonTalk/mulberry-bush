@@ -25,12 +25,14 @@ In `round/index.html`, add `#t40` to the address to jump to the moment forty sec
 
 ```
 index.html              the home page
-img/                    its three pictures
+img/                    its pictures
 traced/
   index.html            the traced film, complete in one file (3.2 MB)
 round/
   index.html            Round the Mulberry Bush
   round.src.html        its single source: dancers, wheel, band and page
+trailer/
+  mulberry-bush-trailer.mp4   a 30-second trailer (the home page plays it)
 report/
   index.html            the making-of report
   report.src.html       its source
@@ -46,7 +48,7 @@ source/
 artifact/               copies of the three pages in the form published as Claude artifacts
 ```
 
-The film itself is not in the repository.
+The film itself is not in the repository. The 30-second trailer in `trailer/` includes a few seconds of it, with its original soundtrack.
 
 ## Credits
 

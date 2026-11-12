@@ -41,6 +41,9 @@ section{display:flex;flex-direction:column;gap:20px}
 .more li{display:flex;flex-direction:column;gap:3px;padding:14px 0;border-bottom:1px solid var(--rule)}
 .more a{font-family:var(--display);font-weight:700;font-size:20px}
 .more span{font-size:15.5px;color:var(--soft)}
+.trailer{display:flex;flex-direction:column;gap:8px;max-width:760px}
+.trailer video{display:block;width:100%;height:auto;aspect-ratio:4/3;border-radius:5px;background:#000}
+.trailer p{font-size:15.5px;color:var(--soft)}
 footer{font-size:14.5px;color:var(--soft);max-width:70ch}
 </style>
 </head>
@@ -55,6 +58,17 @@ footer{font-size:14.5px;color:var(--soft);max-width:70ch}
     <p>Fifty years on, Ken and Claude made two versions of it for the browser.</p>
   </div>
 </header>
+
+<section>
+  <h2>Trailer</h2>
+  <div class="trailer">
+    <video controls preload="metadata" playsinline poster="img/trailer-poster.jpg" width="1280" height="960">
+      <source src="trailer/mulberry-bush-trailer.mp4" type="video/mp4">
+      <a href="trailer/mulberry-bush-trailer.mp4">Download the trailer (mp4, 17 MB)</a>
+    </video>
+    <p>Thirty seconds: a few bits of the 1976 film, then the traced version, then Round the Mulberry Bush.</p>
+  </div>
+</section>
 
 <section>
   <h2>Three versions</h2>
