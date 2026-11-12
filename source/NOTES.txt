@@ -1,6 +1,7 @@
 Mulberry Bush web app - how it was built
 ----------------------------------------
-../index.html      the finished single-file app (open it in a browser)
+../traced/index.html   the finished single-file app (open it in a browser)
+../index.html      the site's home page (written by hand; its pictures are in ../img/)
 app.src.html       the app without its data; the build pastes the packed film in at /*__ASSETS__*/
 scripts/           Python (numpy + opencv) used to trace the film:
   runall.py        traces every drawing (12 per second) into colour regions  [slow: ~1 hour]
@@ -28,3 +29,11 @@ Making-of report
 ../report/report.src.html   the report (edit this); its images are in ../report/img/
 build_report.py             writes ../report/index.html (standalone) and ../artifact/making-of.html (images embedded, for publishing)
 favicons/                   one SVG icon per page; each build script embeds its icon in the stand-alone page (not in the artifact copy)
+
+Trailer (../trailer/mulberry-bush-trailer.mp4, 30 seconds)
+----------------------------------------------------------
+trailer/cdp.py          talks to a local headless Edge started with --remote-debugging-port=9333 on the page to capture
+trailer/cap_traced.py   saves one verse of the traced page as frames, and its soundtrack rendered offline
+trailer/cap_round.py    the same for two stretches of Round the Mulberry Bush
+trailer/compose.py      cuts film clips, the captured frames and captions together, mixes the sound and encodes with ffmpeg
+These were run from a scratch folder holding the film, an ffmpeg binary and the Python libraries; the paths at the top of each need changing to run them again.

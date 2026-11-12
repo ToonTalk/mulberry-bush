@@ -1,5 +1,5 @@
 """Assemble the app from app.src.html + data/assets.js (the packed film).
-Writes ../index.html (stand-alone page) and ../artifact/mulberry-bush-traced.html (fragment for publishing)."""
+Writes ../traced/index.html (stand-alone page) and ../artifact/mulberry-bush-traced.html (fragment for publishing)."""
 import os, re
 here = os.path.dirname(os.path.abspath(__file__))
 
@@ -13,7 +13,8 @@ assert src.count('/*__ASSETS__*/') == 1
 page = src.replace('/*__ASSETS__*/', open(os.path.join(here, 'data', 'assets.js'), encoding='utf-8').read())
 T = '<title>Mulberry Bush</title>'
 assert page.count(T) == 1
-open(os.path.join(here, '..', 'index.html'), 'w', encoding='utf-8').write(page.replace(T, T + '\n' + icon_link('mulberry-bush')))
+os.makedirs(os.path.join(here, '..', 'traced'), exist_ok=True)
+open(os.path.join(here, '..', 'traced', 'index.html'), 'w', encoding='utf-8').write(page.replace(T, T + '\n' + icon_link('mulberry-bush')))
 frag = page
 for tag in ('<!doctype html>\n', '<html lang="en">\n', '<head>\n', '</head>\n', '<body>\n', '</body>\n', '</html>\n',
             '<meta charset="utf-8">\n', '<meta name="viewport" content="width=device-width,initial-scale=1">\n'):
@@ -23,4 +24,4 @@ assert frag.count('<title>Mulberry Bush</title>') == 1
 frag = frag.replace('<title>Mulberry Bush</title>', '<title>Mulberry Bush</title>\n<meta name="claude:viewport-fit-sides" content="cover">')
 os.makedirs(os.path.join(here, '..', 'artifact'), exist_ok=True)
 open(os.path.join(here, '..', 'artifact', 'mulberry-bush-traced.html'), 'w', encoding='utf-8').write(frag)
-print('index.html', len(page), 'artifact', len(frag))
+print('traced/index.html', len(page), 'artifact', len(frag))
