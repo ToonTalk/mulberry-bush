@@ -1,0 +1,29 @@
+Mulberry Bush web app - how it was built
+----------------------------------------
+../index.html      the finished single-file app (open it in a browser)
+app.src.html       the app without its data; the build pastes the packed film in at /*__ASSETS__*/
+scripts/           Python (numpy + opencv) used to trace the film:
+  runall.py        traces every drawing (12 per second) into colour regions  [slow: ~1 hour]
+  dimrun.py        special pass for the under-exposed opening seconds
+  titlerun.py      title cards: one tracing per card plus a fade value per letter per frame
+  part.py/repack.py  clean-up and simplification of the traced shapes
+  media_fix.py     hand-checked table of which drawing medium is on screen at each beat
+  pack.py          packs everything and writes ../index.html
+  audio1/2.py      found the beat grid and chord pattern of the original soundtrack
+data/              intermediate results, enough to re-run pack.py without re-tracing
+The scripts were run from a working folder laid out as: film.mp4 and the data/ files directly in it,
+scripts/ and app/app.src.html beneath it (common.py derives that folder as S). Restore that layout to re-run;
+pack.py's output path is written near its end.
+To change only music or page behaviour: edit app.src.html, then re-run pack.py (about a minute).
+
+Round the Mulberry Bush (the reinterpretation, nothing traced)
+--------------------------------------------------------------
+../round/round.src.html   the whole piece in one file: dancers, wheel, band and page (edit this)
+build_round.py            copies it to ../round/index.html and writes ../artifact/round-the-mulberry-bush.html for publishing
+Open round/index.html#t40 to look at the moment forty seconds in, or #wheel to start in hands-on mode.
+build.py                  the same job for the traced version (app.src.html + data/assets.js)
+
+Making-of report
+----------------
+../report/report.src.html   the report (edit this); its images are in ../report/img/
+build_report.py             writes ../report/index.html (standalone) and ../artifact/making-of.html (images embedded, for publishing)

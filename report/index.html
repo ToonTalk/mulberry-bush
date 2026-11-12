@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Making Mulberry Bush</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column on faded-rose paper; figures and tables break out to the full page width;
+   every design decision is set as a three-row ledger (question / choice / why). */
+:root{
+  --paper:#f8eff3; --panel:#f0e1e8; --ink:#2b1823; --soft:#6d5562; --rule:#dcc6d1;
+  --violet:#5a45a3; --mulberry:#a3275a; --quiet:#b9a3af;
+  --display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;
+  --body:Literata,Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",Consolas,"Courier New",monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#1a1218; --panel:#261a21; --ink:#f0e2e9; --soft:#b199a5; --rule:#3d2c36;
+  --violet:#b3a2f0; --mulberry:#ea86ae; --quiet:#6b5560; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#1a1218; --panel:#261a21; --ink:#f0e2e9; --soft:#b199a5; --rule:#3d2c36;
+  --violet:#b3a2f0; --mulberry:#ea86ae; --quiet:#6b5560; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62}
+.page{max-width:1020px;margin:0 auto;padding-block:40px 72px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.page>*{min-width:0}
+a{color:var(--violet);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--mulberry);outline-offset:2px;border-radius:2px}
+p,ul,ol,dl{margin:0}
+.prose{display:flex;flex-direction:column;gap:14px;max-width:68ch}
+.prose ul,.prose ol{padding-left:1.25em;display:flex;flex-direction:column;gap:6px}
+code{font-family:var(--mono);font-size:.86em;background:var(--panel);padding:.08em .32em;border-radius:3px;overflow-wrap:anywhere}
+
+header{display:flex;flex-direction:column;gap:14px;padding-bottom:28px;border-bottom:2px solid var(--ink)}
+.kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mulberry)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,8vw,76px);line-height:.95;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.lede{font-size:20px;line-height:1.5;max-width:60ch}
+.byline{font-size:14.5px;color:var(--soft)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px 28px;margin-top:6px}
+.facts div{display:flex;flex-direction:column;gap:2px}
+.facts dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.facts dd{margin:0;font-family:var(--display);font-weight:700;font-size:24px;line-height:1.15;font-variant-numeric:tabular-nums}
+
+nav{display:flex;flex-wrap:wrap;gap:6px 18px;padding:16px 0;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:13px}
+nav a{color:var(--soft);text-decoration:none}
+nav a:hover{color:var(--violet);text-decoration:underline}
+
+section{display:flex;flex-direction:column;gap:22px;padding-top:44px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,4.6vw,40px);line-height:1.05;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h2 small{display:block;font-family:var(--mono);font-weight:400;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mulberry);margin-bottom:8px}
+h3{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.2;margin:10px 0 0;text-wrap:balance}
+
+/* decision ledger */
+.why{display:grid;grid-template-columns:8.5rem minmax(0,1fr);border-top:2px solid var(--violet);border-bottom:1px solid var(--rule);max-width:860px}
+.why dt,.why dd{padding:12px 0;border-top:1px solid var(--rule)}
+.why dt:first-of-type,.why dt:first-of-type+dd{border-top:0}
+.why dt{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--violet);padding-right:14px;padding-top:16px}
+.why dd{margin:0;display:flex;flex-direction:column;gap:8px}
+.why dd ul{padding-left:1.2em;display:flex;flex-direction:column;gap:5px}
+@media (max-width:600px){.why{grid-template-columns:minmax(0,1fr)}.why dt{padding-bottom:0}.why dd{border-top:0;padding-top:4px}}
+
+/* numbered steps: used only where the order is the real order of work */
+.steps{list-style:none;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 36px;max-width:none}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:0 6px;padding:13px 0;border-top:1px solid var(--rule)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:22px;line-height:1.2;color:var(--mulberry);font-variant-numeric:tabular-nums}
+.steps b{font-family:var(--display);font-weight:700}
+
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figure img{display:block;width:100%;height:auto;border-radius:4px;background:var(--panel)}
+figcaption{font-size:14.5px;line-height:1.45;color:var(--soft);max-width:78ch}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.stills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.stills figcaption b,.pair figcaption b{color:var(--ink);font-family:var(--mono);font-weight:500;font-size:12.5px}
+.narrow{max-width:760px}
+.wide{overflow-x:auto}
+.wide img{min-width:820px}
+
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:9px 14px 9px 0;border-top:1px solid var(--rule)}
+th{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);border-top:0;border-bottom:1px solid var(--ink);white-space:nowrap}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.k{font-family:var(--display);font-weight:700;white-space:nowrap}
+td.w{white-space:nowrap}
+.scroll table{min-width:640px}
+.scroll.narrow table{min-width:460px}
+
+/* the sixteen-beat verse */
+.verse{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:3px;max-width:680px}
+.verse span{font-family:var(--mono);font-size:13px;text-align:center;padding:9px 0;border-radius:3px;background:var(--panel);color:var(--ink)}
+.verse .g{background:var(--violet);color:var(--paper)}
+
+/* the evening, drawn to scale: flex-grow is the number of beats */
+.evening{display:flex;height:16px;border-radius:3px;overflow:hidden;gap:2px}
+.evening i{display:block;min-width:0}
+.evening .live{background:var(--mulberry)}
+.evening .film{background:var(--violet)}
+.evening .turn{background:var(--quiet)}
+.key{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13.5px;color:var(--soft)}
+.key span{display:inline-flex;align-items:center;gap:7px}
+.key i{width:12px;height:12px;border-radius:2px;display:inline-block}
+
+footer{margin-top:56px;padding-top:18px;border-top:2px solid var(--ink);font-size:14.5px;color:var(--soft);max-width:78ch}
+</style>
+</head>
+<body style="margin:0">
+
+
+<div class="page">
+
+<header>
+  <div class="kicker">Making-of report · 12 November 2026</div>
+  <h1>Making Mulberry Bush</h1>
+  <p class="lede">How Ken Kahn's hand-drawn film of 1976 became two web pieces in one working session: one that traces every drawing, and one that uses none of them. This is what I did, why I did it that way, and which tools I used.</p>
+  <p class="byline">Written by Claude, working in Claude Code on Ken's Windows machine. The reasons given here are reconstructed from the session's record after the fact.</p>
+  <dl class="facts">
+    <div><dt>Drawings traced</dt><dd>2,095</dd></div>
+    <div><dt>Film frames in version two</dt><dd>0</dd></div>
+    <div><dt>Tool calls</dt><dd>211</dd></div>
+    <div><dt>Working time</dt><dd>3 h 8 min</dd></div>
+  </dl>
+</header>
+
+<nav aria-label="Sections">
+  <a href="#versions">The two versions</a>
+  <a href="#session">The session</a>
+  <a href="#traced">Part one: tracing</a>
+  <a href="#sound">The soundtrack</a>
+  <a href="#round">Part two: the wheel</a>
+  <a href="#corrections">Corrections</a>
+  <a href="#tools">Tools</a>
+  <a href="#limits">Not checked</a>
+  <a href="#files">Files</a>
+</nav>
+
+<section id="versions">
+  <h2><small>Result</small>The two versions</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Piece</th><th>What it is</th><th>Size</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Mulberry Bush</td><td>Every drawing in the film, traced from the video into flat colour shapes and redrawn by the browser at twelve drawings a second, on paper and grain the page makes itself. A new soundtrack is played live on the beat of the original recording.</td><td class="n">3.2 MB</td><td class="w"><a href="https://claude.ai/artifact/6iCocVZBschxP7SWCbTfRc" target="_blank" rel="noopener">artifact</a><br><code>index.html</code></td></tr>
+      <tr><td class="k">Round the Mulberry Bush</td><td>A reinterpretation with nothing traced. Four shadow dancers circle a backlit paper screen, the screen turns out to be a spinning wheel of code-drawn dancers, and the four return. It has a hands-on mode where you turn the wheel yourself.</td><td class="n">49 KB</td><td class="w"><a href="https://claude.ai/artifact/FMnBUCYBdFL6nU7vsi9QVs" target="_blank" rel="noopener">artifact</a><br><code>round/index.html</code></td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>The film itself is <a href="https://youtu.be/BfE71oTYjdI" target="_blank" rel="noopener">on YouTube</a>. Both artifacts are private until Ken shares them, so the artifact links open only for people he has given access.</p>
+  </div>
+</section>
+
+<section id="session">
+  <h2><small>Timeline</small>How the session went</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Time</th><th>Request</th><th>Finished</th><th>Tool calls</th></tr></thead>
+    <tbody>
+      <tr><td class="n">09:05</td><td>“Can you make a web app version that maintains the hand-made look? Can you create an appropriate synched soundtrack for it? Feel free to be creative.”</td><td class="n">11:39</td><td class="n">131</td></tr>
+      <tr><td class="n">11:56</td><td>Move it under <code>C:\Users\toont</code> and publish. Then make “a new version with no tracing of the original” that is “a radical reinterpretation of the film”, keeping the Mulberry Bush concept.</td><td class="n">12:25</td><td class="n">60</td></tr>
+      <tr><td class="n">13:19</td><td>Nancy played accordion and Tommy played fiddle; add a link to the film. Then: “Yes, accordion” for the traced version too.</td><td class="n">13:26</td><td class="n">20</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>The first request took two and a half hours, and about 65 minutes of that was a single tracing run I had written badly (see <a href="#wrong">what went wrong</a>). The second took 29 minutes because it needed no analysis of the film: it is one page of code.</p>
+  </div>
+</section>
+
+<section id="traced">
+  <h2><small>Part one</small>Tracing the film</h2>
+
+  <h3>Looking before deciding</h3>
+  <div class="prose">
+    <p>I started by looking at the film, not by designing anything. The machine had no <code>ffmpeg</code>, so I installed a bundled copy with <code>pip</code> into a scratch folder, along with OpenCV and SciPy, copied the film from the Drive mount to local disk, and cut contact sheets of one frame every two seconds. I read those sheets as images.</p>
+  </div>
+  <figure class="narrow">
+    <img src="img/sheet.jpg" width="960" height="768" alt="Contact sheet of twenty film frames from 0:40 to 1:18, showing dancers drawn as black shadows, painted figures and striped figures on a pink ground">
+    <figcaption>One of the five contact sheets from the first look. The same dancers keep returning in different drawing media: shadows, paint, stripes.</figcaption>
+  </figure>
+  <div class="prose">
+    <p>Then I measured what the sheets suggested:</p>
+    <ul>
+      <li><b>Length and picture area.</b> 2 minutes 54.67 seconds. The transfer is 1080 × 1080, with the film gate occupying 1024 × 750 of it.</li>
+      <li><b>Drawing rate.</b> Frame-to-frame differences showed a 2-3 pattern at 30 video frames a second, which means twelve drawings a second. About 30% of those are holds, where the same drawing stays for a second twelfth.</li>
+      <li><b>Colour.</b> A faded pink ground throughout, turning violet for the title cards from 152.4 seconds on.</li>
+      <li><b>Sound.</b> The audio track holds “Here We Go Round the Mulberry Bush” at about 120 beats a minute in C major.</li>
+    </ul>
+  </div>
+
+  <h3>The main decision</h3>
+  <dl class="why">
+    <dt>Question</dt>
+    <dd><p>What does “a web app version that maintains the hand-made look” ask for? A page that plays the video file would keep the look but would not be a web app version of anything.</p></dd>
+    <dt>Choice</dt>
+    <dd><p>Trace every drawing into coloured outlines, ship those as data, and have the browser redraw the film.</p></dd>
+    <dt>Why</dt>
+    <dd><ul>
+      <li>The hand-made look lives in two things: the shapes the hand drew and the twelve-a-second rhythm with its holds. Tracing keeps both exactly.</li>
+      <li>The paper tooth, grain, dust and gate weave do not need to be copied from the video. The page can generate them, so they never repeat and stay sharp at any size.</li>
+      <li>Once the drawings are shapes, the page can do what a video cannot: redraw the same dancers in any of the film's other media, and know which medium is on screen so the music can follow it.</li>
+      <li>The cost is that an automatic trace simplifies fine detail such as faces and thin pencil lines. I accepted that and said so.</li>
+    </ul></dd>
+  </dl>
+
+  <h3>The tracing, in the order I did it</h3>
+  <ol class="steps">
+    <li><span><b>Pick the drawings.</b> One video frame for each twelfth of a second, 2,095 in all.</span></li>
+    <li><span><b>Make a clean plate.</b> The median of many frames over time gives the empty pink paper with its vignette and no dancers.</span></li>
+    <li><span><b>Divide by the paper.</b> Each frame is corrected for lamp flicker, then divided by the plate. Paper becomes 1.0 everywhere, and whatever differs is ink.</span></li>
+    <li><span><b>Find the ink.</b> A two-threshold mask keeps faint strokes that touch strong ones and drops isolated noise.</span></li>
+    <li><span><b>Clean the colour.</b> Video smears colour at edges, so each region takes the colour of its interior, not its fringe.</span></li>
+    <li><span><b>Reduce to a palette.</b> Clustering gave 28 colours, stored as ratios to the paper so they fade and brighten with it.</span></li>
+    <li><span><b>Outline.</b> Each colour region becomes a polygon, simplified until the points are about 2.4 pixels apart at most.</span></li>
+    <li><span><b>Treat the odd parts separately.</b> The under-exposed opening needed its black level subtracted first. Each title card is traced once, with a fade value per letter per frame.</span></li>
+    <li><span><b>Pack.</b> Holds point back at the drawing they repeat. Coordinates are stored as small differences, then gzipped and embedded in the page: 5.5 MB came down to 3.2 MB.</span></li>
+  </ol>
+  <figure>
+    <img src="img/pairs.jpg" width="1200" height="879" alt="Eight pairs of images. In each pair the film frame is on the left and the traced redrawing on the right: the dim opening, four violet title cards, and two frames of striped dancers">
+    <figcaption>A check sheet from late in the tracing. In each pair the film is on the left and my redrawing on the right. Top row: the dim opening seconds, which stayed rough. Middle rows: the title cards.</figcaption>
+  </figure>
+
+  <h3 id="wrong">What went wrong, and what I did</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Problem</th><th>What I did</th></tr></thead>
+    <tbody>
+      <tr><td>The full trace took about 65 minutes. I was asking OpenCV to seek to each frame, which costs seconds per seek on this file.</td><td>Rewrote the reader to step forward through the film. The later title-card pass ran in 2 minutes.</td></tr>
+      <tr><td>A clean-up pass using Python's process pool hung when results came back.</td><td>Ran six plain processes that each wrote their own file.</td></tr>
+      <tr><td>I tried to stop every Python process on the machine to clear the hung job. Claude Code's safety check refused, because that could have killed work that was not mine.</td><td>Stopped only the processes I could identify as mine by their command line.</td></tr>
+      <tr><td>The dim opening frames traced as noise.</td><td>A separate pass with black-level subtraction. Frames too dark to read are left empty.</td></tr>
+      <tr><td>On the title cards the vignette was being detected as ink.</td><td>A separate violet plate, and one master tracing per card.</td></tr>
+      <tr><td>The first packed file was 5.5 MB.</td><td>Hold references, coarser outlines and difference coding, as in step 9.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Putting the film look back</h3>
+  <div class="prose">
+    <p>The page unpacks the data with the browser's built-in gzip, then for each twelfth of a second fills the polygons on a canvas and adds what a projector would: paper tooth, moving grain, dust, a little gate weave, the rounded gate and the vignette. The lamp flicker is not invented. It is the per-frame brightness I measured in step 3, replayed.</p>
+    <p>I checked the result by reading pixel values back from the canvas and comparing them with the film's, since a screenshot that looks right can still be the wrong colour.</p>
+  </div>
+  <div class="pair">
+    <figure><img src="img/film-88.jpg" width="640" height="469" alt="Film frame at 88 seconds: a dancer drawn in horizontal black stripes with red and black hair, on pink"><figcaption><b>FILM 1:28</b> &nbsp;The video transfer.</figcaption></figure>
+    <figure><img src="img/web-88.jpg" width="640" height="469" alt="The same drawing redrawn by the web page, with generated grain and a rounded gate"><figcaption><b>PAGE 1:28</b> &nbsp;The same drawing, redrawn from its tracing.</figcaption></figure>
+  </div>
+  <div class="pair">
+    <figure><img src="img/web-page.jpg" width="820" height="800" alt="The whole web page: the film picture, a timeline striped by drawing medium, buttons to redraw the dancers, and a row of six instruments"><figcaption>The finished page. The timeline doubles as a score: each lane is a drawing medium, lit where that medium is on screen.</figcaption></figure>
+    <figure><img src="img/web-dots.jpg" width="640" height="469" alt="A frame with the dancers redrawn as fields of black dots"><figcaption>“Redraw the dancers as dots.” The outlines are the film's; the filling is a pattern made by the page, and the band changes with it.</figcaption></figure>
+  </div>
+</section>
+
+<section id="sound">
+  <h2><small>Part one, continued</small>The soundtrack</h2>
+  <dl class="why">
+    <dt>Question</dt>
+    <dd><p>What is an “appropriate synched soundtrack” for a film that already has one?</p></dd>
+    <dt>Choice</dt>
+    <dd><p>A new arrangement of the same tune, played live by the browser, landing on the beats of the original recording. Each way of drawing a dancer gets its own instrument, which plays only while those dancers are on screen.</p></dd>
+    <dt>Why</dt>
+    <dd><ul>
+      <li>The drawings were made to that recording, so its beat is where the steps fall. Using the measured beat times, not a steady metronome, keeps the new music in step even where the old tempo drifts.</li>
+      <li>The film's own idea is the same dance drawn in changing media. Giving each medium a voice lets you hear that idea as well as see it.</li>
+      <li>Synthesizing in the browser keeps the file small and lets the music react when you redraw the dancers or scrub the timeline.</li>
+    </ul></dd>
+  </dl>
+
+  <h3>Finding the beat</h3>
+  <div class="prose">
+    <p>I extracted the audio, looked at its spectrogram, and ran a beat tracker over it. It found 350 beats at about 120 a minute. Comparing the energy of each pitch beat by beat gave the harmony: sixteen beats to a verse, in C and G, 22 verses in all.</p>
+  </div>
+  <figure class="narrow">
+    <div class="verse" role="img" aria-label="Chord on each of the sixteen beats of a verse: C C C C, G G G G, C C C C, G G C C">
+      <span>C</span><span>C</span><span>C</span><span>C</span><span class="g">G</span><span class="g">G</span><span class="g">G</span><span class="g">G</span><span>C</span><span>C</span><span>C</span><span>C</span><span class="g">G</span><span class="g">G</span><span>C</span><span>C</span>
+    </div>
+    <figcaption>The chord on each beat of a verse, as measured from the recording. Each beat is divided in three, which gives the tune its jig lilt.</figcaption>
+  </figure>
+  <figure class="narrow">
+    <img src="img/spec.jpg" width="960" height="431" alt="Spectrogram of twenty seconds of the original soundtrack, with regular vertical pulses and horizontal bands of held notes">
+    <figcaption>Twenty seconds of the original soundtrack as a spectrogram. I cannot listen to audio, so pictures and measurements like this were how I read it.</figcaption>
+  </figure>
+
+  <h3>Who plays when</h3>
+  <div class="prose">
+    <p>My automatic detection of which medium was on screen was unreliable, so I made contact sheets with one frame per beat, read them, and wrote the table by hand.</p>
+  </div>
+  <figure class="wide">
+    <img src="img/beats.jpg" width="1500" height="481" alt="Contact sheet with one small frame for each beat of the first seven verses, sixteen frames to a row">
+    <figcaption>One frame per beat, sixteen beats to a row, for the first seven verses. I used sheets like this to mark which media are dancing on every beat.</figcaption>
+  </figure>
+  <div class="scroll narrow"><table>
+    <thead><tr><th>Drawn as</th><th>Played by</th><th>Synthesized from</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Paint</td><td>Fiddle</td><td>Two slightly detuned sawtooth waves with vibrato</td></tr>
+      <tr><td class="k">Shadows</td><td>Clarinet</td><td>A square wave with a sine under it</td></tr>
+      <tr><td class="k">Stripes</td><td>Banjo</td><td>A short plucked tone</td></tr>
+      <tr><td class="k">Dots</td><td>Glockenspiel</td><td>High sine partials that ring and decay</td></tr>
+      <tr><td class="k">Big circles</td><td>Tuba and drum</td><td>A low tone and a pitched thump</td></tr>
+      <tr><td class="k">Polka dots</td><td>Accordion</td><td>Sawtooth and square detuned against each other, like two reeds</td></tr>
+      <tr><td class="k">Title cards</td><td>Music box</td><td>The glockenspiel voice alone</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>Underneath, an accordion keeps the dance going: a bass reed on the beat and the chord after it. It was a bass and a strummed guitar until Ken told me what Nancy and Tommy played.</p>
+    <p><b>Checking music I cannot hear.</b> I rendered the whole soundtrack offline in the browser and measured it. The first mix was far too loud and clipped. After rebalancing, peaks stay at or under 0.78 of full scale in every section. I also read back the fiddle's pitches against the tune. The tune is written from memory, so a phrase may differ from the version Ken knows.</p>
+  </div>
+</section>
+
+<section id="round">
+  <h2><small>Part two</small>Round the Mulberry Bush</h2>
+  <div class="prose">
+    <p>The second request ruled out tracing and asked for a radical reinterpretation. Ken also told me what the film had been part of: in the live piece, four dancers went round a backlit screen, the film was projected, and the four danced again, with Nancy and Tommy playing in the front row. It was part of <i>Loops</i>. I had a helper agent read <a href="https://www.awn.com/animationworld/susan-pitt-animators-journey" target="_blank" rel="noopener">the article he pointed to</a>, which places <i>Loops</i> at Harvard's Carpenter Center in 1976. The article does not mention this film; that connection is Ken's own account.</p>
+  </div>
+
+  <dl class="why">
+    <dt>Question</dt>
+    <dd><p>If no drawing can be reused, what is “the Mulberry Bush concept” that has to survive?</p></dd>
+    <dt>Choice</dt>
+    <dd><p>Going round. The backlit screen becomes a phenakistoscope: a paper wheel from before cinema, with dancers drawn round it, that only comes alive when it spins behind a shutter.</p></dd>
+    <dt>Why</dt>
+    <dd><ul>
+      <li>Everything Ken described is a circle or a loop: a ring dance, a song that goes round, dancers circling a screen, an evening called <i>Loops</i>. A spinning wheel makes that literal. Nothing in the middle section moves except the wheel going round.</li>
+      <li>It keeps the shape of the evening: the four dancers, the film, the four again.</li>
+      <li>The numbers fit. Twelve glimpses per turn at one turn a second is twelve drawings a second, the film's own rate, and one turn is exactly two beats, one step and one hop.</li>
+      <li>It keeps the first version's best idea, changing media verse by verse with an instrument for each, while every figure is drawn by code.</li>
+      <li>A wheel asks to be turned by hand, which gave the piece something the film could not have: you can spin it yourself and the band follows your speed.</li>
+    </ul></dd>
+  </dl>
+
+  <h3>How a wheel of still drawings dances</h3>
+  <div class="prose">
+    <p>The shutter shows the wheel twelve times per turn, each time one twelfth of a turn further on. What you see depends on how many figures are on a ring:</p>
+  </div>
+  <div class="scroll narrow"><table>
+    <thead><tr><th>Figures on the ring</th><th>What the eye sees</th></tr></thead>
+    <tbody>
+      <tr><td class="n">12 or 24</td><td>Each glimpse puts a neighbour exactly where the last figure stood. Every figure is drawn a fraction of a step later than the one before it, so the ring dances on the spot.</td></tr>
+      <tr><td class="n">13 or 25</td><td>The neighbour lands slightly ahead, so the ring also drifts slowly the way the wheel turns.</td></tr>
+      <tr><td class="n">11 or 23</td><td>The neighbour lands slightly behind, so the ring drifts the other way.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>With two rings on each disc, an inner ring of 13 and an outer ring of 23 circle in opposite directions. When the wheel speeds up and slows down I made it lose exactly two whole turns over each eight-beat ramp, so the dancers' feet still land on the beat once it is at speed.</p>
+  </div>
+
+  <h3>The evening, beat by beat</h3>
+  <figure>
+    <div class="evening" role="img" aria-label="The piece to scale over 264 beats: live dancers for the first 48 beats, the wheel speeding up for 8, the film for 136, the wheel slowing for 8, live dancers for 40, and the ending for 24">
+      <i class="live" style="flex-grow:48"></i><i class="turn" style="flex-grow:8"></i><i class="film" style="flex-grow:136"></i><i class="turn" style="flex-grow:8"></i><i class="live" style="flex-grow:40"></i><i class="turn" style="flex-grow:24"></i>
+    </div>
+    <div class="key"><span><i style="background:var(--mulberry)"></i>the four dancers</span><span><i style="background:var(--violet)"></i>the film on the wheel</span><span><i style="background:var(--quiet)"></i>wheel changing speed, and the ending</span></div>
+    <figcaption>The whole piece to scale: 264 beats at 120 a minute, 2 minutes 12 seconds.</figcaption>
+  </figure>
+  <div class="scroll"><table>
+    <thead><tr><th>Beats</th><th>Time</th><th>On the screen</th><th>Band</th></tr></thead>
+    <tbody>
+      <tr><td class="n">0–16</td><td class="n">0:00</td><td>The light comes up behind a round paper screen. The title appears.</td><td>Accordion alone</td></tr>
+      <tr><td class="n">16–48</td><td class="n">0:08</td><td>Four dancers circle the screen: soft shadows when they pass behind it, black figures in front.</td><td>Fiddle joins</td></tr>
+      <tr><td class="n">48–56</td><td class="n">0:24</td><td>The dancers leave. Two rings of drawn figures appear and the wheel gathers speed.</td><td>Fiddle and accordion</td></tr>
+      <tr><td class="n">56–192</td><td class="n">0:28</td><td>The shutter starts and the rings dance. Eight discs follow one another: shadows, paint, stripes, dots, big circles, polka dots, and last a disc carrying every medium.</td><td>Accordion, plus one instrument for each ring</td></tr>
+      <tr><td class="n">192–200</td><td class="n">1:36</td><td>The wheel slows and stops with its drawings frozen.</td><td>Accordion, quietly</td></tr>
+      <tr><td class="n">200–240</td><td class="n">1:40</td><td>The four dancers come back round the stopped wheel.</td><td>Fiddle and accordion</td></tr>
+      <tr><td class="n">240–264</td><td class="n">2:00</td><td>Last chord. The credits appear on the screen and the light goes down.</td><td></td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="stills">
+    <figure><img src="img/round-13_2.jpg" width="600" height="477" alt="Two dancers round a glowing pink screen, one as a black figure in front and soft shadows on the screen behind; two musicians sit in the front row"><figcaption><b>0:13</b> &nbsp;The four dancers. Fiddle on the left, accordion on the right.</figcaption></figure>
+    <figure><img src="img/round-36_3.jpg" width="600" height="477" alt="The wheel with two rings of black silhouette dancers holding hands round a green bush at the hub"><figcaption><b>0:36</b> &nbsp;The first disc: shadows on both rings, a mulberry bush at the hub.</figcaption></figure>
+    <figure><img src="img/round-60_4.jpg" width="600" height="477" alt="The wheel with an inner ring of painted dancers and an outer ring of striped dancers"><figcaption><b>1:00</b> &nbsp;Paint inside, stripes outside.</figcaption></figure>
+    <figure><img src="img/round-76_3.jpg" width="600" height="477" alt="The wheel with an inner ring of dancers made of dots and an outer ring made of large coloured circles"><figcaption><b>1:16</b> &nbsp;Dots and big circles.</figcaption></figure>
+    <figure><img src="img/round-110.jpg" width="600" height="477" alt="The stopped wheel carrying every drawing medium, with the four dancers passing in front of and behind it"><figcaption><b>1:50</b> &nbsp;The wheel has stopped on the disc with every medium, and the four return.</figcaption></figure>
+    <figure><img src="img/round-126_5.jpg" width="600" height="477" alt="Credits lettered on the screen: Mulberry Bush, a film by Ken Kahn, 1976, first shown in Loops, Carpenter Center, Harvard, music Nancy Koch accordion, Tommy Magee fiddle, thanks Fannie Newman, Cathy Shaw, Dave Taenzer"><figcaption><b>2:06</b> &nbsp;The credits, taken from the film's own title cards.</figcaption></figure>
+  </div>
+
+  <h3>Drawing dancers with code</h3>
+  <div class="prose">
+    <p>Each figure is a small jointed skeleton. One function takes a position in the step-hop cycle and returns where the hips, knees, feet, shoulders and hands are, working the knees and elbows out from where the feet and hands need to be. Neighbours on a ring reach for each other's hands. A second function dresses that skeleton in one of six media: solid shadow, paint with clothes and skin, stripes, dots, big coloured circles, or polka dots.</p>
+    <p>One bug cost real time here. To fill a figure with a pattern I was drawing the pattern “inside” the figure's shape one stroke at a time, and each stroke wiped out the one before. The fix was to compose the whole pattern on a spare canvas first and stamp it in once.</p>
+  </div>
+
+  <h3>Take the wheel</h3>
+  <div class="pair">
+    <figure><img src="img/round-wheel.jpg" width="760" height="943" alt="Hands-on mode: the wheel above a panel of buttons for the shutter, a motor, circling, the four dancers, and what is drawn on the inner and outer rings"><figcaption>Hands-on mode. Drag the wheel round and the band plays at the speed you turn it. Opening the shutter shows why a phenakistoscope needs one: the drawings blur into rings.</figcaption></figure>
+    <div class="prose">
+      <p>This mode came from asking what the wheel could do that a film cannot. The music runs off the wheel's angle: one turn is two beats, at whatever speed and in whichever direction you turn it.</p>
+      <p>Ken's verdict on the piece was “Very nice, including the hand-on mode.”</p>
+      <h3>Checking without watching</h3>
+      <p>By this point the app's preview pane had shrunk and stopped running animations, so I could not watch the piece move. I worked round it three ways:</p>
+      <ul>
+        <li>I gave the page a hook, <code>#t40</code> in the address to show the moment forty seconds in, and took full-size screenshots with Microsoft Edge running headless. I looked at about fourteen moments this way.</li>
+        <li>I tested hands-on mode by script: spinning the wheel four turns produced exactly the 24 notes' worth of music it should, and turning it backwards broke nothing.</li>
+        <li>I rendered each section's audio offline and measured levels, as before.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="corrections">
+  <h2><small>Feedback</small>Corrections from Ken</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>What Ken said</th><th>What changed</th></tr></thead>
+    <tbody>
+      <tr><td>“Nancy played accordion and Tommy played fiddle.” I had guessed fiddle and guitar and said it was a guess.</td><td>In <i>Round</i>, the guitar part became an accordion part, the right-hand musician got bellows that open and close on the beat, and the credits name both instruments.</td></tr>
+      <tr><td>“You could provide a link to my film.”</td><td>Both pages link to the YouTube upload. I left off the <code>?si=</code> part of the pasted link, which is a share-tracking tag.</td></tr>
+      <tr><td>“Yes, accordion,” when I asked whether the traced version should change too.</td><td>Its bass and guitar accompaniment became an accordion, including under the titles and in the final chord. I measured the levels again afterwards.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="tools">
+  <h2><small>Tool use</small>What I worked with</h2>
+  <div class="prose">
+    <p>These counts come from the session log and cover everything up to the request for this report.</p>
+  </div>
+  <div class="scroll"><table>
+    <thead><tr><th>Tool</th><th>Calls</th><th>What I used it for</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Bash shell</td><td class="n">91</td><td>Nearly all the real work: running the Python scripts that analysed, traced and packed the film, building the pages, moving the project, and driving headless Edge for screenshots.</td></tr>
+      <tr><td class="k">In-app browser</td><td class="n">44</td><td>Loading the pages from a local server, reading the console for errors, and running JavaScript in the page to read canvas pixels and render audio offline.</td></tr>
+      <tr><td class="k">Read</td><td class="n">29</td><td>Looking. Mostly images: contact sheets, test tracings, screenshots. Also source files.</td></tr>
+      <tr><td class="k">PowerShell</td><td class="n">9</td><td>Windows-side chores, such as finding installed programs and stopping my own stuck jobs.</td></tr>
+      <tr><td class="k">Write and Edit</td><td class="n">10</td><td>Creating the scripts and the two page sources. Many later changes were scripted patches run from the shell.</td></tr>
+      <tr><td class="k">Artifact</td><td class="n">6</td><td>Publishing the two pieces and republishing them after each correction.</td></tr>
+      <tr><td class="k">TaskStop</td><td class="n">6</td><td>Stopping background jobs, including the hung clean-up pass.</td></tr>
+      <tr><td class="k">Plan and wrap-up</td><td class="n">11</td><td>The progress list and end-of-turn summary shown in the app.</td></tr>
+      <tr><td class="k">Everything else</td><td class="n">5</td><td>One helper agent to read the article, one load of Ken's notes on what artifacts can and cannot do, one request for access to the new folder, and two look-ups of tool definitions.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Software underneath</h3>
+  <div class="scroll"><table>
+    <thead><tr><th>Where</th><th>What</th><th>For</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Python</td><td>NumPy, OpenCV, SciPy, Pillow, a bundled <code>ffmpeg</code></td><td>Reading frames, the clean plate, masks, clustering, outlines, the beat tracker, contact sheets</td></tr>
+      <tr><td class="k">Browser</td><td>Canvas 2D, Web Audio, <code>DecompressionStream</code></td><td>Drawing every frame, synthesizing every note, unpacking the film data</td></tr>
+      <tr><td class="k">Checking</td><td><code>OfflineAudioContext</code>, headless Microsoft Edge</td><td>Measuring sound I cannot hear; taking full-size stills when the preview pane would not animate</td></tr>
+    </tbody>
+  </table></div>
+  <div class="prose">
+    <p>Neither page uses a library or loads anything from the network. Each is a single HTML file.</p>
+  </div>
+</section>
+
+<section id="limits">
+  <h2><small>Limits</small>What I could not check</h2>
+  <div class="prose">
+    <ul>
+      <li><b>I have not heard either soundtrack.</b> Notes and levels were measured. Whether the instruments sound good, and whether the mix is pleasant, are Ken's to judge.</li>
+      <li><b>I never watched <i>Round</i> in motion.</b> It was checked through stills and by testing its logic.</li>
+      <li><b>Hands-on mode was exercised by script,</b> not by dragging with a mouse or finger.</li>
+      <li><b>Browsers.</b> Both pieces were run only in Chromium-based browsers on this machine. Firefox, Safari and phones are untested.</li>
+      <li><b>The trace is automatic.</b> Faces and thin lines are simplified, and the dim opening seconds are rough.</li>
+      <li><b>The front-row musicians are crudely drawn.</b> The accordion reads as one only loosely.</li>
+      <li><b>One credit is my combination.</b> “First shown in Loops, Carpenter Center, Harvard” joins Ken's account to the article's.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="files">
+  <h2><small>Reference</small>Where everything is</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Path under <code>C:\Users\toont\mulberry-bush</code></th><th>What</th></tr></thead>
+    <tbody>
+      <tr><td><code>index.html</code></td><td>The traced film, complete in one file</td></tr>
+      <tr><td><code>round\index.html</code></td><td>Round the Mulberry Bush. Add <code>#t40</code> to jump to a moment, or <code>#wheel</code> to start in hands-on mode</td></tr>
+      <tr><td><code>round\round.src.html</code></td><td>The single source for <i>Round</i>: dancers, wheel, band and page</td></tr>
+      <tr><td><code>source\app.src.html</code></td><td>The traced page without its data. Edit this to change its music or behaviour</td></tr>
+      <tr><td><code>source\scripts\</code>, <code>source\data\</code></td><td>The tracing scripts and their intermediate results</td></tr>
+      <tr><td><code>source\build.py</code>, <code>build_round.py</code>, <code>build_report.py</code></td><td>Rebuild each page and its publishable copy in <code>artifact\</code></td></tr>
+      <tr><td><code>source\NOTES.txt</code></td><td>Build notes</td></tr>
+      <tr><td><code>report\</code></td><td>This report and its images</td></tr>
+      <tr><td><code>README.md</code>, <code>LICENSE</code></td><td>Overview and the MIT license. The whole folder is a git repository, kept on GitHub at <a href="https://github.com/ToonTalk/mulberry-bush" target="_blank" rel="noopener">ToonTalk/mulberry-bush</a></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>
+  Making this report took a further round of work: fresh screenshots of both pieces with headless Edge, and a short script over the session log for the timings and tool counts. The film stills are from <i>Mulberry Bush</i> © 1976 Ken Kahn.
+</footer>
+
+</div>
+
+</body>
+</html>
